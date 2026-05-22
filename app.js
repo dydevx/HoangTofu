@@ -1,7 +1,6 @@
 "use strict";
 
 const WHATSAPP_NUMBER = "421950614298";
-const MAP_URL = "https://maps.app.goo.gl/4pipqxpDw49BoM2s8";
 const STORAGE_KEY = "hoang-tofu-order";
 const DESKTOP_MENU_PAGE_SIZE = 12;
 const MOBILE_MENU_PAGE_SIZE = 8;
@@ -551,7 +550,6 @@ function buildInvoice() {
     if (clean) lines.push(`${label}: ${clean}`);
   });
 
-  lines.push("", `Mapa: ${MAP_URL}`);
   return lines.join("\n");
 }
 
