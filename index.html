@@ -1,0 +1,303 @@
+<!doctype html>
+<html lang="sk">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Hoang Tofu | Objednávka</title>
+    <meta name="description" content="Hoang Tofu Bratislava - výber jedál a objednávka cez WhatsApp.">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="#domov" aria-label="Hoang Tofu">
+        <img src="8efb95a17ef73a668ec23d053697809c2122c157.jpg" alt="Hoang Tofu logo">
+      </a>
+      <nav class="top-actions" aria-label="Hlavná navigácia">
+        <a href="#domov">Domov</a>
+        <a href="#kontakt">O nás</a>
+        <a href="#menu">Menu</a>
+        <a href="#galeria">Fotogaléria</a>
+        <a href="#recenzie">Recenzie</a>
+        <a href="#kontakt">Kontakt</a>
+        <a class="nav-order" href="#objednavka">Objednať online</a>
+      </nav>
+    </header>
+
+    <main id="domov" class="app-shell">
+      <section class="hero-panel" aria-labelledby="order-title">
+        <div class="hero-copy">
+          <img class="hero-logo" src="8efb95a17ef73a668ec23d053697809c2122c157.jpg" alt="Hoang Tofu logo">
+          <p class="hero-kicker">VIETNAMSKÁ CHUŤ<br>PRE KAŽDÉHO</p>
+          <h1 id="order-title" class="hero-title">
+            <span>BÚN</span>
+            <span>RYBACÍ</span>
+          </h1>
+          <p class="hero-description">Tradičná vietnamská rybacia polievka plná chutí a čerstvých byliniek</p>
+          <a class="paint-cta" href="#objednavka">
+            <strong>OBJEDNAJTE SI<br>EŠTE DNES!</strong>
+            <span>RÝCHLO • CHUTNE • POCTIVO</span>
+          </a>
+        </div>
+        <div class="hero-media">
+          <div class="taste-ribbon" aria-hidden="true">
+            <span>Zamilujete si</span>
+            <strong>OD PRVÉHO SÚSTA!</strong>
+          </div>
+          <img src="assets/hero-bun-rybaci.jpg" alt="Bún rybací Hoang Tofu">
+          <div class="fresh-badge" aria-hidden="true">
+            <span>ČERSTVÉ</span>
+            <span>POCTIVÉ</span>
+            <span>CHUTNÉ</span>
+          </div>
+        </div>
+      </section>
+
+      <section id="jedla" class="tool-section featured-section" aria-labelledby="featured-title">
+        <div class="section-row">
+          <h2 id="featured-title">ODPORÚČANÉ AJ</h2>
+          <span id="featured-count" class="count-pill"></span>
+        </div>
+        <div id="featured-grid" class="featured-grid"></div>
+      </section>
+
+      <section id="menu" class="tool-section menu-section" aria-labelledby="menu-title">
+        <div class="section-row">
+          <h2 id="menu-title">Kompletné menu</h2>
+          <span id="menu-count" class="count-pill"></span>
+        </div>
+
+        <div class="menu-toolbar">
+          <label class="search-field">
+            <span>Hľadať</span>
+            <input id="search-input" type="search" placeholder="Pho, sushi, tofu..." autocomplete="off">
+          </label>
+          <div id="category-filter" class="category-filter" aria-label="Kategórie menu"></div>
+        </div>
+
+        <div id="menu-list" class="menu-list"></div>
+        <div id="menu-pagination" class="menu-pagination-wrap"></div>
+      </section>
+
+      <aside id="objednavka" class="cart-panel" aria-labelledby="cart-title">
+        <div class="section-row">
+          <h2 id="cart-title">Objednávka</h2>
+          <button id="clear-cart" class="ghost-button" type="button">Vymazať</button>
+        </div>
+
+        <div id="cart-items" class="cart-items"></div>
+
+        <form id="customer-form" class="customer-form">
+          <fieldset>
+            <legend>Typ</legend>
+            <label class="radio-pill">
+              <input type="radio" name="orderType" value="Osobný odber" checked>
+              <span>Osobný odber</span>
+            </label>
+            <label class="radio-pill">
+              <input type="radio" name="orderType" value="Doručenie">
+              <span>Doručenie</span>
+            </label>
+          </fieldset>
+
+          <label>
+            <span>Meno</span>
+            <input name="customerName" type="text" autocomplete="name" placeholder="Meno">
+          </label>
+          <label>
+            <span>Telefón</span>
+            <input name="customerPhone" type="tel" autocomplete="tel" placeholder="+421">
+          </label>
+          <label>
+            <span>Adresa</span>
+            <input name="customerAddress" type="text" autocomplete="street-address" placeholder="Len pri doručení">
+          </label>
+          <label>
+            <span>Čas</span>
+            <input name="pickupTime" type="text" placeholder="Čo najskôr">
+          </label>
+          <label>
+            <span>Poznámka</span>
+            <textarea name="note" rows="3" placeholder="Bez cibule, paličky, platba..."></textarea>
+          </label>
+        </form>
+
+        <div class="cart-total">
+          <span>Spolu</span>
+          <strong id="cart-total">0,00 €</strong>
+        </div>
+
+        <a id="whatsapp-link" class="whatsapp-button disabled" href="#" target="_blank" rel="noreferrer" aria-disabled="true">
+          Odoslať cez WhatsApp
+        </a>
+        <button id="copy-invoice" class="secondary-button" type="button">Kopírovať účet</button>
+        <pre id="invoice-preview" class="invoice-preview"></pre>
+      </aside>
+
+      <section class="tool-section custom-item" aria-labelledby="custom-title">
+        <div class="section-row">
+          <h2 id="custom-title">Vlastná položka</h2>
+        </div>
+        <form id="custom-form" class="custom-form">
+          <label>
+            <span>Názov</span>
+            <input id="custom-name" type="text" placeholder="Názov jedla">
+          </label>
+          <label>
+            <span>Cena EUR</span>
+            <input id="custom-price" type="number" min="0" step="0.10" placeholder="0.00">
+          </label>
+          <label>
+            <span>Ks</span>
+            <input id="custom-qty" type="number" min="1" step="1" value="1">
+          </label>
+          <button type="submit">Pridať</button>
+        </form>
+      </section>
+
+      <section id="galeria" class="tool-section gallery-section" aria-labelledby="gallery-title">
+        <div class="section-row">
+          <h2 id="gallery-title">Galéria jedál</h2>
+        </div>
+        <div id="photo-gallery" class="photo-gallery"></div>
+      </section>
+    </main>
+
+    <section id="recenzie" class="reviews-section" aria-labelledby="reviews-title">
+      <div class="wide-container">
+        <p class="section-kicker">REVIEW</p>
+        <h2 id="reviews-title">Čo o nás hovoria naši zákazníci?</h2>
+        <p class="reviews-intro">Vaša spokojnosť je našou prioritou. Ďakujeme za každú návštevu a objednávku.</p>
+
+        <div class="reviews-grid">
+          <article class="review-card">
+            <div class="stars" aria-label="5 z 5 hviezdičiek">★★★★★</div>
+            <p>Chutné jedlo, veľké porcie a príjemná obsluha. Sushi aj vietnamské jedlá boli čerstvé.</p>
+            <div class="review-author">
+              <span>J</span>
+              <strong>Jan Novak</strong>
+            </div>
+          </article>
+          <article class="review-card">
+            <div class="stars" aria-label="5 z 5 hviezdičiek">★★★★★</div>
+            <p>Objednávka bola pripravená rýchlo. Pho polievka mala výborný vývar a veľa byliniek.</p>
+            <div class="review-author">
+              <span>M</span>
+              <strong>Maria Oravcova</strong>
+            </div>
+          </article>
+          <article class="review-card">
+            <div class="stars" aria-label="5 z 5 hviezdičiek">★★★★★</div>
+            <p>Výborné tofu, rezance aj sushi bowl. Oceňujem čisté balenie a dobrú komunikáciu.</p>
+            <div class="review-author">
+              <span>P</span>
+              <strong>Peter Kral</strong>
+            </div>
+          </article>
+          <article class="review-card">
+            <div class="stars" aria-label="5 z 5 hviezdičiek">★★★★★</div>
+            <p>Na obed sem chodíme často. Jedlá sú stabilne dobré a ceny sú férové.</p>
+            <div class="review-author">
+              <span>A</span>
+              <strong>Anna Horvath</strong>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="kontakt" class="visit-section" aria-labelledby="visit-title">
+      <div class="wide-container">
+        <p class="section-kicker">REZERVUJTE STÔL</p>
+        <h2 id="visit-title">Tešíme sa na stretnutie s vami v Hoang Tofu</h2>
+
+        <div class="visit-grid">
+          <div class="contact-map">
+            <div class="contact-line">
+              <strong>Adresa</strong>
+              <span>Vajnorská 10595/98F, 831 04 Nové Mesto, Slovakia</span>
+            </div>
+            <div class="contact-line">
+              <strong>Telefón</strong>
+              <a href="tel:+421950614298">+421 950 614 298</a>
+            </div>
+            <div class="contact-line">
+              <strong>Otváracie hodiny</strong>
+              <span>Po - Pia: 10:00 - 20:00<br>So - Ne: 11:00 - 17:00</span>
+            </div>
+            <iframe
+              title="Mapa Hoang Tofu"
+              src="https://www.google.com/maps?q=Vajnorsk%C3%A1%2010595%2F98F%2C%20831%2004%20Nov%C3%A9%20Mesto%2C%20Slovakia&output=embed"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+          </div>
+
+          <form id="reservation-form" class="reservation-card">
+            <h3>REZERVÁCIA STOLA</h3>
+            <div class="reservation-fields">
+              <label>
+                <span>Meno a priezvisko*</span>
+                <input name="reservationName" type="text" required>
+              </label>
+              <label>
+                <span>Telefónne číslo*</span>
+                <input name="reservationPhone" type="tel" required>
+              </label>
+              <label>
+                <span>Dátum rezervácie*</span>
+                <input name="reservationDate" type="date" required>
+              </label>
+              <label>
+                <span>Čas rezervácie*</span>
+                <input name="reservationTime" type="time" required>
+              </label>
+              <label>
+                <span>Počet osôb*</span>
+                <input name="reservationGuests" type="number" min="1" value="2" required>
+              </label>
+              <label class="reservation-note">
+                <span>Špeciálne požiadavky</span>
+                <textarea name="reservationNote" rows="4"></textarea>
+              </label>
+            </div>
+            <button type="submit">REZERVOVAŤ STÔL</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <div class="footer-column footer-about">
+          <img src="8efb95a17ef73a668ec23d053697809c2122c157.jpg" alt="Hoang Tofu logo">
+          <p>Radi vás privítame v Hoang Tofu, kde si môžete vychutnať autentické chute Vietnamu pripravené z čerstvých a kvalitných ingrediencií.</p>
+          <div class="social-row" aria-label="Sociálne siete">
+            <a href="#" aria-label="Facebook">f</a>
+            <a href="#" aria-label="Instagram">◎</a>
+            <a href="#" aria-label="YouTube">▶</a>
+          </div>
+        </div>
+
+        <div class="footer-column">
+          <h3>Objednávky online</h3>
+          <p>Objednajte si jednoducho cez Bolt Food a vychutnajte si naše jedlá pohodlne doma.</p>
+        </div>
+
+        <div class="footer-column">
+          <h3>Kontakt</h3>
+          <p>Vajnorská 10595/98F, 831 04 Nové Mesto, Slovakia</p>
+          <p><a href="tel:+421950614298">+421 950 614 298</a></p>
+          <p>Po – Pia: 10:00 – 20:00<br>So – Ne: 11:00 – 17:00</p>
+        </div>
+      </div>
+      <div class="footer-copy">Copyright by Hoangcaster</div>
+    </footer>
+
+    <dialog id="image-dialog" class="image-dialog">
+      <button id="dialog-close" class="dialog-close" type="button" aria-label="Zavrieť">×</button>
+      <img id="dialog-image" alt="">
+    </dialog>
+
+    <script src="app.js" defer charset="utf-8"></script>
+  </body>
+</html>
