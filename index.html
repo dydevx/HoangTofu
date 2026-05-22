@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Hoang Tofu | Objednávka</title>
-    <meta name="description" content="Hoang Tofu Bratislava - výber jedál a objednávka cez WhatsApp.">
+    <title>Hoang Tofu | Menu a donáška</title>
+    <meta name="description" content="Hoang Tofu Bratislava - menu, fotogaléria a objednávka cez Bolt Food alebo Wolt.">
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
@@ -19,7 +19,7 @@
         <a href="#galeria">Fotogaléria</a>
         <a href="#recenzie">Recenzie</a>
         <a href="#kontakt">Kontakt</a>
-        <a class="nav-order" href="#objednavka">Objednať online</a>
+        <a class="nav-order" href="#objednavka">Bolt / Wolt</a>
       </nav>
     </header>
 
@@ -78,80 +78,33 @@
         <div id="menu-pagination" class="menu-pagination-wrap"></div>
       </section>
 
-      <aside id="objednavka" class="cart-panel" aria-labelledby="cart-title">
-        <div class="section-row">
-          <h2 id="cart-title">Objednávka</h2>
-          <button id="clear-cart" class="ghost-button" type="button">Vymazať</button>
+      <section id="objednavka" class="order-platform-section" aria-labelledby="cart-title">
+        <div class="delivery-choice" aria-label="Objednávka online">
+          <div>
+            <p class="delivery-kicker">Objednávka online</p>
+            <h3 id="cart-title">Objednajte si cez Bolt Food alebo Wolt</h3>
+            <p>Vyberte si platformu, ktorá vám vyhovuje, a dokončite objednávku priamo cez donáškovú službu.</p>
+          </div>
+          <div class="delivery-actions">
+            <a class="delivery-button bolt" href="https://food.bolt.eu/sk-sk/326/p/78240-hoang-tofu?utm_source=share_provider&amp;utm_medium=product&amp;utm_content=menu_header" target="_blank" rel="noreferrer">
+              <span class="delivery-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" focusable="false">
+                  <path d="M13.8 2 5.5 13.2h5L9.7 22l8.8-12.2h-5.2L13.8 2Z" fill="currentColor"/>
+                </svg>
+              </span>
+              <span>Bolt Food</span>
+            </a>
+            <a class="delivery-button wolt" href="https://wolt.com/sk/svk/bratislava/restaurant/hoang-tofu" target="_blank" rel="noreferrer">
+              <span class="delivery-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" focusable="false">
+                  <path d="M7 9.5h10l-1 9H8l-1-9Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="2"/>
+                  <path d="M9 9.5a3 3 0 0 1 6 0" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2"/>
+                </svg>
+              </span>
+              <span>Wolt</span>
+            </a>
+          </div>
         </div>
-
-        <div id="cart-items" class="cart-items"></div>
-
-        <form id="customer-form" class="customer-form">
-          <fieldset>
-            <legend>Typ</legend>
-            <label class="radio-pill">
-              <input type="radio" name="orderType" value="Osobný odber" checked>
-              <span>Osobný odber</span>
-            </label>
-            <label class="radio-pill">
-              <input type="radio" name="orderType" value="Doručenie">
-              <span>Doručenie</span>
-            </label>
-          </fieldset>
-
-          <label>
-            <span>Meno</span>
-            <input name="customerName" type="text" autocomplete="name" placeholder="Meno">
-          </label>
-          <label>
-            <span>Telefón</span>
-            <input name="customerPhone" type="tel" autocomplete="tel" placeholder="+421">
-          </label>
-          <label>
-            <span>Adresa</span>
-            <input name="customerAddress" type="text" autocomplete="street-address" placeholder="Len pri doručení">
-          </label>
-          <label>
-            <span>Čas</span>
-            <input name="pickupTime" type="text" placeholder="Čo najskôr">
-          </label>
-          <label>
-            <span>Poznámka</span>
-            <textarea name="note" rows="3" placeholder="Bez cibule, paličky, platba..."></textarea>
-          </label>
-        </form>
-
-        <div class="cart-total">
-          <span>Spolu</span>
-          <strong id="cart-total">0,00 €</strong>
-        </div>
-
-        <a id="whatsapp-link" class="whatsapp-button disabled" href="#" target="_blank" rel="noreferrer" aria-disabled="true">
-          Odoslať cez WhatsApp
-        </a>
-        <button id="copy-invoice" class="secondary-button" type="button">Kopírovať objednávku</button>
-        <pre id="invoice-preview" class="invoice-preview"></pre>
-      </aside>
-
-      <section class="tool-section custom-item" aria-labelledby="custom-title">
-        <div class="section-row">
-          <h2 id="custom-title">Vlastná položka</h2>
-        </div>
-        <form id="custom-form" class="custom-form">
-          <label>
-            <span>Názov</span>
-            <input id="custom-name" type="text" placeholder="Názov jedla">
-          </label>
-          <label>
-            <span>Cena EUR</span>
-            <input id="custom-price" type="number" min="0" step="0.10" placeholder="0.00">
-          </label>
-          <label>
-            <span>Ks</span>
-            <input id="custom-qty" type="number" min="1" step="1" value="1">
-          </label>
-          <button type="submit">Pridať</button>
-        </form>
       </section>
 
       <section id="galeria" class="tool-section gallery-section" aria-labelledby="gallery-title">
@@ -207,7 +160,7 @@
 
     <section id="kontakt" class="visit-section" aria-labelledby="visit-title">
       <div class="wide-container">
-        <p class="section-kicker">REZERVUJTE STÔL</p>
+        <p class="section-kicker">KONTAKT</p>
         <h2 id="visit-title">Tešíme sa na stretnutie s vami v Hoang Tofu</h2>
 
         <div class="visit-grid">
@@ -232,36 +185,18 @@
             </iframe>
           </div>
 
-          <form id="reservation-form" class="reservation-card">
-            <h3>REZERVÁCIA STOLA</h3>
-            <div class="reservation-fields">
-              <label>
-                <span>Meno a priezvisko*</span>
-                <input name="reservationName" type="text" required>
-              </label>
-              <label>
-                <span>Telefónne číslo*</span>
-                <input name="reservationPhone" type="tel" required>
-              </label>
-              <label>
-                <span>Dátum rezervácie*</span>
-                <input name="reservationDate" type="date" required>
-              </label>
-              <label>
-                <span>Čas rezervácie*</span>
-                <input name="reservationTime" type="time" required>
-              </label>
-              <label>
-                <span>Počet osôb*</span>
-                <input name="reservationGuests" type="number" min="1" value="2" required>
-              </label>
-              <label class="reservation-note">
-                <span>Špeciálne požiadavky</span>
-                <textarea name="reservationNote" rows="4"></textarea>
-              </label>
-            </div>
-            <button type="submit">REZERVOVAŤ STÔL</button>
-          </form>
+          <div class="call-card">
+            <h3>Zavolajte nám priamo</h3>
+            <p>Otázky, osobný odber alebo rezerváciu stola vybavíme najrýchlejšie telefonicky.</p>
+            <a class="call-button" href="tel:+421950614298">
+              <span class="call-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" focusable="false">
+                  <path d="M6.6 10.8a15.2 15.2 0 0 0 6.6 6.6l2.2-2.2c.3-.3.8-.4 1.2-.3 1.3.4 2.7.6 4.1.6.7 0 1.3.6 1.3 1.3v3.5c0 .7-.6 1.3-1.3 1.3C10.4 21.6 2.4 13.6 2.4 3.3 2.4 2.6 3 2 3.7 2h3.5c.7 0 1.3.6 1.3 1.3 0 1.4.2 2.8.6 4.1.1.4 0 .8-.3 1.2l-2.2 2.2Z" fill="currentColor"/>
+                </svg>
+              </span>
+              <span>+421 950 614 298</span>
+            </a>
+          </div>
         </div>
       </div>
     </section>
@@ -280,7 +215,7 @@
 
         <div class="footer-column">
           <h3>Objednávky online</h3>
-          <p>Objednajte si jednoducho cez Bolt Food a vychutnajte si naše jedlá pohodlne doma.</p>
+          <p>Objednajte si jednoducho cez Bolt Food alebo Wolt a vychutnajte si naše jedlá pohodlne doma.</p>
         </div>
 
         <div class="footer-column">
@@ -296,18 +231,6 @@
     <dialog id="image-dialog" class="image-dialog">
       <button id="dialog-close" class="dialog-close" type="button" aria-label="Zavrieť">×</button>
       <img id="dialog-image" alt="">
-    </dialog>
-
-    <dialog id="copy-dialog" class="copy-dialog" aria-labelledby="copy-dialog-title">
-      <div class="copy-dialog-inner">
-        <h2 id="copy-dialog-title">HoangTofu</h2>
-        <p>Prehliadač blokuje automatické kopírovanie. Text objednávky je pripravený nižšie.</p>
-        <textarea id="copy-dialog-text" rows="9" readonly></textarea>
-        <div class="copy-dialog-actions">
-          <button id="copy-dialog-select" class="secondary-button" type="button">Označiť text</button>
-          <button id="copy-dialog-close" class="whatsapp-button" type="button">Zavrieť</button>
-        </div>
-      </div>
     </dialog>
 
     <script src="app.js" defer charset="utf-8"></script>
