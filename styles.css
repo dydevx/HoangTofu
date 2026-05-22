@@ -1259,6 +1259,65 @@ h2 {
   cursor: pointer;
 }
 
+.copy-dialog {
+  width: min(560px, calc(100vw - 28px));
+  max-width: none;
+  padding: 0;
+  background: transparent;
+  border: 0;
+}
+
+.copy-dialog::backdrop {
+  background: rgba(5, 20, 12, 0.7);
+}
+
+.copy-dialog-inner {
+  display: grid;
+  gap: 14px;
+  padding: 22px;
+  color: var(--ink);
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+}
+
+.copy-dialog h2 {
+  color: var(--green-800);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.35rem;
+}
+
+.copy-dialog p {
+  margin: 0;
+  color: var(--muted);
+  font-weight: 700;
+}
+
+.copy-dialog textarea {
+  width: 100%;
+  min-height: 190px;
+  padding: 12px;
+  color: #26352b;
+  background: var(--cream);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  font-family: Consolas, "Courier New", monospace;
+  font-size: 0.86rem;
+  resize: vertical;
+}
+
+.copy-dialog-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.copy-dialog-actions .secondary-button,
+.copy-dialog-actions .whatsapp-button {
+  grid-column: auto;
+}
+
 @media (max-width: 1120px) {
   .top-actions {
     gap: 16px;
@@ -1592,6 +1651,10 @@ h2 {
   .cart-panel {
     width: calc(100% - 24px);
     padding: 18px 14px;
+  }
+
+  .copy-dialog-actions {
+    grid-template-columns: 1fr;
   }
 
   .customer-form fieldset,

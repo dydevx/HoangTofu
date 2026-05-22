@@ -129,7 +129,7 @@
         <a id="whatsapp-link" class="whatsapp-button disabled" href="#" target="_blank" rel="noreferrer" aria-disabled="true">
           Odoslať cez WhatsApp
         </a>
-        <button id="copy-invoice" class="secondary-button" type="button">Kopírovať účet</button>
+        <button id="copy-invoice" class="secondary-button" type="button">Kopírovať objednávku</button>
         <pre id="invoice-preview" class="invoice-preview"></pre>
       </aside>
 
@@ -296,6 +296,18 @@
     <dialog id="image-dialog" class="image-dialog">
       <button id="dialog-close" class="dialog-close" type="button" aria-label="Zavrieť">×</button>
       <img id="dialog-image" alt="">
+    </dialog>
+
+    <dialog id="copy-dialog" class="copy-dialog" aria-labelledby="copy-dialog-title">
+      <div class="copy-dialog-inner">
+        <h2 id="copy-dialog-title">HoangTofu</h2>
+        <p>Prehliadač blokuje automatické kopírovanie. Text objednávky je pripravený nižšie.</p>
+        <textarea id="copy-dialog-text" rows="9" readonly></textarea>
+        <div class="copy-dialog-actions">
+          <button id="copy-dialog-select" class="secondary-button" type="button">Označiť text</button>
+          <button id="copy-dialog-close" class="whatsapp-button" type="button">Zavrieť</button>
+        </div>
+      </div>
     </dialog>
 
     <script src="app.js" defer charset="utf-8"></script>

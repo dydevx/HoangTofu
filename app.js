@@ -199,6 +199,10 @@ const els = {
   imageDialog: document.querySelector("#image-dialog"),
   dialogImage: document.querySelector("#dialog-image"),
   dialogClose: document.querySelector("#dialog-close"),
+  copyDialog: document.querySelector("#copy-dialog"),
+  copyDialogText: document.querySelector("#copy-dialog-text"),
+  copyDialogSelect: document.querySelector("#copy-dialog-select"),
+  copyDialogClose: document.querySelector("#copy-dialog-close"),
   reservationForm: document.querySelector("#reservation-form"),
 };
 
@@ -643,16 +647,25 @@ function bindEvents() {
       await navigator.clipboard.writeText(invoice);
       els.copyInvoice.textContent = "Skopírované";
       window.setTimeout(() => {
-        els.copyInvoice.textContent = "Kopírovať účet";
+        els.copyInvoice.textContent = "Kopírovať objednávku";
       }, 1400);
     } catch {
-      window.prompt("Kopírovať účet", invoice);
+      showCopyDialog(invoice);
     }
   });
 
   els.dialogClose.addEventListener("click", () => els.imageDialog.close());
   els.imageDialog.addEventListener("click", (event) => {
     if (event.target === els.imageDialog) els.imageDialog.close();
+  });
+
+  els.copyDialogClose.addEventListener("click", () => els.copyDialog.close());
+  els.copyDialogSelect.addEventListener("click", () => {
+    els.copyDialogText.focus();
+    els.copyDialogText.select();
+  });
+  els.copyDialog.addEventListener("click", (event) => {
+    if (event.target === els.copyDialog) els.copyDialog.close();
   });
 
   if (els.reservationForm) {
@@ -674,6 +687,17 @@ function bindEvents() {
       window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`, "_blank", "noopener");
     });
   }
+}
+
+function showCopyDialog(invoice) {
+  els.copyDialogText.value = invoice;
+  if (els.copyDialog.showModal) {
+    els.copyDialog.showModal();
+  } else {
+    els.copyDialog.setAttribute("open", "");
+  }
+  els.copyDialogText.focus();
+  els.copyDialogText.select();
 }
 
 function debounce(callback, wait) {
